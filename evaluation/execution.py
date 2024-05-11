@@ -376,7 +376,7 @@ def check_correctness(
         "task_id"      : task_id,
         "completion_id": completion_id,
         "test_code"    : sample["test_code"],
-        "prompt"       : sample["prompt"],
+        #"prompt"       : sample["prompt"],
         "generation"   : sample["generation"],
         "result"       : result[0],
         "passed"       : result[0] == "passed",

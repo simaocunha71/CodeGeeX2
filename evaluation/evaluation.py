@@ -186,12 +186,13 @@ def evaluate_functional_correctness(
     else:
         logger.info("Total: {}".format(np.sum(total)))
         logger.info("Correct: {}".format(np.sum(correct)))
-        
+    
     if test_groundtruth:
         out_file = os.path.join(output_path, "ground_truth.jsonl")
-    else:    
-        out_file = os.path.join(output_path, "result-" + input_file.split("/")[-2] + "." + input_file.split("/")[-1].split(".")[-1])
-    
+    else:
+        filename = os.path.basename(input_file)
+        out_file = os.path.join(output_path, "result_" + filename)
+
     logger.info("Writing to: {}".format(out_file))
     if out_file.endswith(".gz"):
         fp = gzip.GzipFile(fileobj=open(out_file, "wb"), mode="wb")
